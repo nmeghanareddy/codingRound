@@ -11,6 +11,8 @@ import page.account.AccountPage;
 import page.account.WebAccountPage;
 import page.flights.FlightsPage;
 import page.flights.WebFlightsPage;
+import page.home.HomePage;
+import page.home.WebHomePage;
 import page.hotels.HotelsPage;
 import page.hotels.WebHotelsPage;
 
@@ -19,6 +21,7 @@ import com.sun.javafx.PlatformUtil;
 public class BrowserDriver {
 	public static WebDriver webDriver;
 	
+	public HomePage homePage = null;
 	public AccountPage accountPage = null;
 	public FlightsPage flightsPage = null;
 	public HotelsPage hotelsPage = null;
@@ -33,6 +36,7 @@ public class BrowserDriver {
 		webDriver.manage().window().maximize();
 		webDriver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 		
+		homePage = new WebHomePage(webDriver);
 		accountPage = new WebAccountPage(webDriver);
 		flightsPage = new WebFlightsPage(webDriver);
 		hotelsPage = new WebHotelsPage(webDriver);
@@ -43,6 +47,7 @@ public class BrowserDriver {
 		if (webDriver != null) {
 			webDriver.quit();
 		}
+		homePage = null;
 		accountPage = null;
 		flightsPage = null;
 		hotelsPage = null;

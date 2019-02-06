@@ -7,15 +7,21 @@ public class HotelBookingTest extends BrowserDriver{
 	
 	@Test
 	public void verifySearchResultsDisplayed() {
-		if (hotelsPage.isPageDisplayed()) {
-			hotelsPage.enterDetails();
-			if (!hotelsPage.isSearchResultsDisplayed()) {
+		if (homePage.isPageDisplayed()) {
+			homePage.clickOnHotels();
+			if (hotelsPage.isPageDisplayed()) {
+				hotelsPage.enterDetails();
+				if (!hotelsPage.isSearchResultsDisplayed()) {
+					Assert.assertTrue(false,
+							"Search Results are not displayed with selected details");
+				}
+			} else {
 				Assert.assertTrue(false,
-						"Search Results are not displayed with selected details");
+						"Search Hotels Page is not displayed for Hotel bookings");
 			}
 		} else {
 			Assert.assertTrue(false,
-					"Search Hotels Page is not displayed for Hotel bookings");
+					"Home Page is not displayed to search for Hotels");
 		}
 	}
 }

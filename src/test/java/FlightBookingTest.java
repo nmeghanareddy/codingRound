@@ -7,15 +7,21 @@ public class FlightBookingTest extends BrowserDriver{
 	
 	@Test
 	public void verifySearchResultsDisplayed() {
-		if (flightsPage.isPageDisplayed()) {
-			flightsPage.enterDetails();
-			if (!flightsPage.isSearchResultsDisplayed()) {
+		if (homePage.isPageDisplayed()) {
+			homePage.clickOnFlights();
+			if (flightsPage.isPageDisplayed()) {
+				flightsPage.enterDetails();
+				if (!flightsPage.isSearchResultsDisplayed()) {
+					Assert.assertTrue(false,
+							"Search results are not displayed for selected details");
+				}
+			} else {
 				Assert.assertTrue(false,
-						"Search results are not displayed for selected details");
+						"Search for Flights Page is not displayed for Flight bookings");
 			}
 		} else {
 			Assert.assertTrue(false,
-					"Search for Flights Page is not displayed for Flight bookings");
+					"Home Page is not displayed to search for Flights");
 		}
 	}
 }
