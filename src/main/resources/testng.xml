@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="clearTrip" verbose="1">
+	<test name="FlightBookingTest">
+		<classes>
+			<class name="FlightBookingTest" />
+		</classes>
+	</test>
+	<test name="HotelBookingTest">
+		<classes>
+			<class name="HotelBookingTest" />
+		</classes>
+	</test>
+	<test name="SignInTest">
+		<classes>
+			<class name="SignInTest" />
+		</classes>
+	</test>
+</suite>
