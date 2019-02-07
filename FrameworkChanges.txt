@@ -1,0 +1,15 @@
+Modifications:
+
+Here is the list of changes made in the current framework
+
+1.	Created test package and moved all the test classes to test package
+2.	Created common package to include the common code shared among the tests.
+	common package consists of:
+	•	BrowserDriver class – Functions to initialize and quit driver. 
+	•	Constants class – All constant variables. 
+3.	Created page package to include all the pages of the website. The approach used is Page Object Model (POM) wherein for each page in the website, corresponding page class is created. 
+	•	AbstractPage class – Functions common across all pages
+	•	flights, hotels, account, home – Every package consists of two class, one abstract class having abstract methods related to respective page and one implementation class to provide implementation for these methods. Every method is implemented with try-catch block to handle exception. @FindBy annotation is used to find elements.
+4.	Modified all the test classes to include only test method and assertions.
+5.	Created resources package and added testng.xml file to define the test suite and tests.
+6.	Updated chromedriver to chromedriver 2.42
